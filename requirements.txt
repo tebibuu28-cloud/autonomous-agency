@@ -1,0 +1,4 @@
+# Production Core Engine Dependencies
+# All standard libraries are packed natively. 
+# Added request utilities for advanced external API bridges.
+requests>=2.31.0
