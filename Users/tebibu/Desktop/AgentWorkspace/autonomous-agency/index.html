@@ -2,36 +2,109 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Agent Visualizer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Agency | The Matrix Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <style>
-        body { margin: 0; background: #000; color: #0f0; font-family: Arial; }
-        #ui { position: absolute; top: 10px; left: 10px; }
-    </style>
 </head>
-<body>
-    <div id="ui"><h1>Engine: <span id="status">Connecting...</span></h1></div>
-    <script>
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
-        const sphere = new THREE.Mesh(new THREE.SphereGeometry(1), new THREE.MeshBasicMaterial({wireframe: true, color: 0x00ff00}));
-        scene.add(sphere);
-        camera.position.z = 3;
+<body class="bg-slate-950 text-white font-sans overflow-x-hidden">
+
+    <nav class="p-6 fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-tighter">AGENCY.CORE</h1>
+            <div class="flex gap-6 text-sm text-slate-300">
+                <a href="#features" class="hover:text-blue-400">Features</a>
+                <a href="#telemetry" class="hover:text-blue-400">Telemetry</a>
+                <a href="https://github.com/tebibuu28-cloud/autonomous-agency" class="hover:text-blue-400">Github</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="h-screen flex flex-col justify-center items-center text-center px-4 pt-20 relative">
+        <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-blue-200 to-purple-500">
+            Autonomous<br>Orchestration
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mb-12">
+            The enterprise framework for unattended, state-managed execution. Built for resiliency. Audited by design.
+        </p>
         
-        async function updateDashboard() {
-    const res = await fetch('http://127.0.0.1:8000/status');
-    const data = await res.json();
-    
-    // Update the UI with Enterprise Metrics
-    document.getElementById('status').innerText = data.system_health;
-    
-    // If system is degraded, change sphere color to Red
-    if(data.system_health !== "OPERATIONAL") {
-        sphere.material.color.set(0xff0000);
-    } else {
-        sphere.material.color.set(0x00ff00);
-    }
-}
+        <div id="canvas-container" class="w-full h-80 relative flex justify-center items-center">
+            </div>
+
+        <a href="#features" class="mt-12 bg-white text-slate-950 hover:bg-slate-200 px-10 py-4 rounded-full font-bold transition text-lg">Learn More</a>
+    </section>
+
+    <section id="features" class="py-32 px-10 max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
+        <div class="p-8 bg-slate-900/60 rounded-2xl border border-slate-800 backdrop-blur">
+            <div class="text-3xl text-blue-400 mb-4 font-extrabold">01</div>
+            <h3 class="text-xl font-bold mb-3">Enterprise Telemetry</h3>
+            <p class="text-slate-400 text-sm">Chronological, immutable logging for every agent action and system state change.</p>
+        </div>
+        <div class="p-8 bg-slate-900/60 rounded-2xl border border-slate-800 backdrop-blur">
+            <div class="text-3xl text-purple-400 mb-4 font-extrabold">02</div>
+            <h3 class="text-xl font-bold mb-3">State-Driven Routing</h3>
+            <p class="text-slate-400 text-sm">Agents route logic based on dynamic environment variables and previous task outputs.</p>
+        </div>
+        <div class="p-8 bg-slate-900/60 rounded-2xl border border-slate-800 backdrop-blur">
+            <div class="text-3xl text-emerald-400 mb-4 font-extrabold">03</div>
+            <h3 class="text-xl font-bold mb-3">Unattended Batching</h3>
+            <p class="text-slate-400 text-sm">Run complex, high-throughput batch task ingestors 24/7 without human intervention.</p>
+        </div>
+    </section>
+
+    <script>
+        // Set up the scene
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 320, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true }); // Alpha is true for transparency
+        renderer.setSize(window.innerWidth, 320);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        // Define the 3D Geometry (A complex, multi-sided geometric core)
+        const geometry = new THREE.OctahedronGeometry(2, 2); 
+        
+        // Define the Material (A wireframe looks technical and modern)
+        const material = new THREE.MeshStandardMaterial({ 
+            color: 0x3b82f6, 
+            wireframe: true,
+            emissive: 0x6d28d9, // Subtle purple glow
+            emissiveIntensity: 0.5
+        });
+        
+        const coreMesh = new THREE.Mesh(geometry, material);
+        scene.add(coreMesh);
+
+        // Add essential lighting
+        const ambientLight = new THREE.AmbientLight(0xffxff, 0.5); // Global soft light
+        scene.add(ambientLight);
+        
+        const pointLight = new THREE.PointLight(0xffffff, 1); // Focused bright light
+        pointLight.position.set(5, 5, 5);
+        scene.add(pointLight);
+
+        // Position the camera
+        camera.position.z = 5;
+
+        // The Animation Loop (Runs 60 times per second)
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            // Apply subtle rotations to make it "Live"
+            coreMesh.rotation.x += 0.005; 
+            coreMesh.rotation.y += 0.010; // Slow, technical rotation
+
+            renderer.render(scene, camera);
+        }
+        
+        // Handle window resizing (Keep the 3D centered)
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, 320);
+            camera.aspect = window.innerWidth / 320;
+            camera.updateProjectionMatrix();
+        });
+
+        // Start the engine
+        animate();
+    </script>
+</body>
+</html>
