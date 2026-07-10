@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Autonomous Agency | The Matrix Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body class="bg-slate-950 text-white font-sans">
+    <section class="h-screen flex flex-col justify-center items-center text-center">
+        <h1 class="text-6xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+            Autonomous Agency Engine
+        </h1>
+        <div id="canvas-container" class="w-full h-80"></div>
+        <p class="mt-8 text-xl text-slate-400">Enterprise-grade batch orchestration.</p>
+    </section>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 300, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, 300);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+        const geometry = new THREE.IcosahedronGeometry(2, 1);
+        const material = new THREE.MeshBasicMaterial({ color: 0x3b82f6, wireframe: true });
+        const sphere = new THREE.Mesh(geometry, material);
+        scene.add(sphere);
+        camera.position.z = 5;
+        function animate() {
+            requestAnimationFrame(animate);
+            sphere.rotation.x += 0.01;
+            sphere.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+</body>
+</html>
