@@ -2,74 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Autonomous Agency | Neo-Brutalist Engine</title>
+    <title>Autonomous Agency | Enterprise Engine</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
-        body { font-family: 'Space+Grotesk', sans-serif; background-color: #171e19; color: #000; }
-        .border-hard { border: 2px solid #000; }
-        .shadow-hard { box-shadow: 4px 4px 0px 0px #000; }
-        .shadow-hard-lg { box-shadow: 8px 8px 0px 0px #000; }
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&display=swap');
+        body { font-family: 'Space+Grotesk', sans-serif; background-color: #171e19; }
+        .border-hard { border: 3px solid #000; }
+        .shadow-hard { box-shadow: 6px 6px 0px 0px #000; }
         .btn-neo {
-            background-color: #000; color: #fff; padding: 1rem 2rem; border: 2px solid #000;
-            border-radius: 0.75rem; box-shadow: 8px 8px 0px 0px #000;
-            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background-color: #000; color: #fff; padding: 1.5rem 3rem; border: 3px solid #000;
+            box-shadow: 8px 8px 0px 0px #000; font-weight: 900; transition: all 0.2s;
         }
         .btn-neo:hover { transform: translate(4px, 4px); box-shadow: 4px 4px 0px 0px #000; }
-        .bg-yellow-neo { background-color: #ffe17c; }
-        .bg-charcoal-neo { background-color: #171e19; }
-        .bg-sage-neo { background-color: #b7c6c2; }
     </style>
 </head>
-<body>
-    <header class="h-20 bg-yellow-neo border-b-2 border-black flex items-center justify-between px-10 sticky top-0 z-50">
-        <div class="font-bold text-xl">AGENT_ENGINE</div>
-        <button class="btn-neo text-sm py-2 px-4">START FREE TRIAL</button>
-    </header>
+<body class="p-4 md:p-10">
+    <!-- Header -->
+    <nav class="bg-[#ffe17c] border-hard p-6 flex justify-between items-center mb-10 shadow-hard">
+        <h1 class="text-2xl font-black italic">AUTONOMOUS_AGENCY</h1>
+        <button class="bg-black text-white font-bold py-2 px-6 border-hard">STAR ON GITHUB</button>
+    </nav>
 
-    <section class="bg-yellow-neo p-20 border-b-2 border-black">
-        <div class="max-w-6xl mx-auto grid grid-cols-2 gap-10 items-center">
-            <div>
-                <div class="bg-white px-4 py-1 border-hard inline-block mb-6 font-bold">NEW: AI ENGINE 2.0</div>
-                <h1 class="text-7xl font-black mb-6">MULTI-AGENT BATCH ORCHESTRATION</h1>
-                <button class="btn-neo">DEPLOY ENGINE</button>
-            </div>
-            <div class="bg-white border-hard shadow-hard-lg p-6 rounded-2xl">
-                <div class="h-6 bg-black rounded-lg mb-4 flex gap-2 items-center px-3">
-                    <div class="w-3 h-3 rounded-full bg-[#ff5f57]"></div>
-                    <div class="w-3 h-3 rounded-full bg-[#febc2e]"></div>
-                    <div class="w-3 h-3 rounded-full bg-[#28c840]"></div>
-                </div>
-                <div class="space-y-4">
-                    <div class="h-20 bg-sage-neo border-hard"></div>
-                    <div class="h-20 bg-[#171e19] border-hard"></div>
-                </div>
-            </div>
+    <!-- Hero -->
+    <section class="bg-[#ffe17c] border-hard p-10 mb-10 shadow-hard">
+        <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-6">ENTERPRISE MULTI-AGENT ENGINE</h1>
+        <p class="text-xl font-bold mb-8 max-w-2xl">A high-throughput batch processing platform. Bypasses linear limitations with state-driven architecture[cite: 2].</p>
+        <button class="btn-neo">VIEW DOCUMENTATION</button>
+    </section>
+
+    <!-- Deep Dive Features -->
+    <section class="grid md:grid-cols-2 gap-8 mb-10">
+        <div class="bg-white border-hard p-8 shadow-hard">
+            <h2 class="text-3xl font-black mb-4 underline">💎 PREMIUM FEATURES</h2>
+            <ul class="space-y-4 font-bold">
+                <li>✅ <b>Dual-Inference Routing:</b> Intelligent fallback from LLMs to blueprint matrix[cite: 2].</li>
+                <li>✅ <b>10x Resiliency Guards:</b> Telemetry, failure boundaries, and state rollbacks[cite: 2].</li>
+                <li>✅ <b>Incremental Versioning:</b> Complete isolation of state snapshot arrays[cite: 2].</li>
+            </ul>
+        </div>
+        <div class="bg-[#b7c6c2] border-hard p-8 shadow-hard">
+            <h2 class="text-3xl font-black mb-4 underline">⚡ QUICK START</h2>
+            <code class="block bg-black text-white p-4 mb-4 font-mono">setup.bat</code>
+            <code class="block bg-black text-white p-4 font-mono">python app.py --file prompts.txt</code>
         </div>
     </section>
 
-    <section class="bg-yellow-neo py-20 border-b-2 border-black">
-        <div class="max-w-5xl mx-auto grid grid-cols-3 gap-8">
-            <div class="bg-white p-8 border-hard shadow-hard">
-                <div class="w-12 h-12 bg-sage-neo border-hard mb-6"></div>
-                <h2 class="text-2xl font-bold mb-2">10x Resiliency</h2>
-                <p>Advanced telemetry and auto-rollback systems.</p>
-            </div>
-            <div class="bg-white p-8 border-hard shadow-hard">
-                <div class="w-12 h-12 bg-sage-neo border-hard mb-6"></div>
-                <h2 class="text-2xl font-bold mb-2">Dual-Inference</h2>
-                <p>Seamless fallback between local LLMs and blueprints.</p>
-            </div>
-            <div class="bg-white p-8 border-hard shadow-hard">
-                <div class="w-12 h-12 bg-sage-neo border-hard mb-6"></div>
-                <h2 class="text-2xl font-bold mb-2">Sequential Batch</h2>
-                <p>Unattended execution with precision timing.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-charcoal-neo text-white p-10 text-center">
-        <p>© 2026 Autonomous Agency Engine. Built for scale.</p>
+    <!-- Footer -->
+    <footer class="bg-[#171e19] text-[#b7c6c2] border-hard p-10 text-center font-bold">
+        <p>2026 Autonomous Agency | Commercial-Grade Orchestration</p>
     </footer>
 </body>
 </html>
