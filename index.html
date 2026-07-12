@@ -2,33 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Autonomous Agency | The Matrix Engine</title>
+    <title>Autonomous Agency Engine</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
-<body class="bg-slate-950 text-white font-sans">
-    <section class="h-screen flex flex-col justify-center items-center text-center">
-        <h1 class="text-6xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-            Autonomous Agency Engine
-        </h1>
-        <div id="canvas-container" class="w-full h-80"></div>
-        <p class="mt-8 text-xl text-slate-400">Enterprise-grade batch orchestration.</p>
-    </section>
+<body class="bg-slate-950 text-white font-sans p-8">
+    <div class="max-w-4xl mx-auto">
+        <header class="text-center mb-12">
+            <h1 class="text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+                🚀 Enterprise Multi-Agent Orchestration Engine
+            </h1>
+            <p class="text-xl text-slate-400">A commercial-grade, high-throughput batch processing multi-agent platform[cite: 32].</p>
+        </header>
+
+        <div id="canvas-container" class="w-full h-64 mb-12 border border-slate-800 rounded-lg"></div>
+
+        <section class="grid gap-6">
+            <div class="bg-slate-900 p-6 rounded-xl border border-slate-800">
+                <h2 class="text-2xl font-bold mb-4">💎 Premium Production Features</h2>
+                <ul class="space-y-3 text-slate-300">
+                    <li><strong>Dual-Inference Intelligent Routing:</strong> Automatic fallback engine that switches from live local LLM endpoints to an internal structural section blueprint matrix when offline[cite: 35].</li>
+                    <li><strong>10x Enterprise Resiliency Guards:</strong> Includes telemetry tracking, failure error boundaries, pre-flight system health checks, state rollbacks, and schema validation[cite: 39].</li>
+                    <li><strong>Unattended Sequential Batching:</strong> Ingest bulk operational prompts via structured text manifests with precision runtime execution spacing[cite: 40].</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
     <script>
+        // Setup 3D Scene
+        const container = document.getElementById('canvas-container');
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 300, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true });
-        renderer.setSize(window.innerWidth, 300);
-        document.getElementById('canvas-container').appendChild(renderer.domElement);
-        const geometry = new THREE.IcosahedronGeometry(2, 1);
+        const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        container.appendChild(renderer.domElement);
+
+        const geometry = new THREE.IcosahedronGeometry(1.5, 0);
         const material = new THREE.MeshBasicMaterial({ color: 0x3b82f6, wireframe: true });
         const sphere = new THREE.Mesh(geometry, material);
         scene.add(sphere);
-        camera.position.z = 5;
+        camera.position.z = 4;
+
         function animate() {
             requestAnimationFrame(animate);
-            sphere.rotation.x += 0.01;
-            sphere.rotation.y += 0.01;
+            sphere.rotation.x += 0.005;
+            sphere.rotation.y += 0.005;
             renderer.render(scene, camera);
         }
         animate();
