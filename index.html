@@ -2,52 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autonomous Agency | Enterprise Engine</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&display=swap');
-        body { font-family: 'Space+Grotesk', sans-serif; background-color: #171e19; }
+        body { font-family: 'Space+Grotesk', sans-serif; background-color: #171e19; color: #000; }
         .border-hard { border: 3px solid #000; }
         .shadow-hard { box-shadow: 6px 6px 0px 0px #000; }
         .btn-neo {
-            background-color: #000; color: #fff; padding: 1.5rem 3rem; border: 3px solid #000;
-            box-shadow: 8px 8px 0px 0px #000; font-weight: 900; transition: all 0.2s;
+            background-color: #000; color: #fff; padding: 1.5rem 3rem; 
+            border: 3px solid #000; box-shadow: 8px 8px 0px 0px #000;
+            font-weight: 900; transition: all 0.2s; cursor: pointer;
         }
         .btn-neo:hover { transform: translate(4px, 4px); box-shadow: 4px 4px 0px 0px #000; }
     </style>
 </head>
 <body class="p-4 md:p-10">
-    <!-- Header -->
     <nav class="bg-[#ffe17c] border-hard p-6 flex justify-between items-center mb-10 shadow-hard">
         <h1 class="text-2xl font-black italic">AUTONOMOUS_AGENCY</h1>
-        <button class="bg-black text-white font-bold py-2 px-6 border-hard">STAR ON GITHUB</button>
+        <a href="https://github.com/tebibuu28-cloud/autonomous-agency" class="bg-black text-white font-bold py-2 px-6 border-hard">STAR ON GITHUB</a>
     </nav>
 
-    <!-- Hero -->
     <section class="bg-[#ffe17c] border-hard p-10 mb-10 shadow-hard">
         <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-6">ENTERPRISE MULTI-AGENT ENGINE</h1>
-        <p class="text-xl font-bold mb-8 max-w-2xl">A high-throughput batch processing platform. Bypasses linear limitations with state-driven architecture[cite: 2].</p>
-        <button class="btn-neo">VIEW DOCUMENTATION</button>
+        <p class="text-xl font-bold mb-8 max-w-2xl">A high-throughput batch processing platform. Bypasses linear limitations with state-driven architecture.</p>
+        <button onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})" class="btn-neo">VIEW DOCUMENTATION</button>
     </section>
 
-    <!-- Deep Dive Features -->
-    <section class="grid md:grid-cols-2 gap-8 mb-10">
+    <section id="features" class="grid md:grid-cols-2 gap-8 mb-10">
         <div class="bg-white border-hard p-8 shadow-hard">
             <h2 class="text-3xl font-black mb-4 underline">💎 PREMIUM FEATURES</h2>
             <ul class="space-y-4 font-bold">
-                <li>✅ <b>Dual-Inference Routing:</b> Intelligent fallback from LLMs to blueprint matrix[cite: 2].</li>
-                <li>✅ <b>10x Resiliency Guards:</b> Telemetry, failure boundaries, and state rollbacks[cite: 2].</li>
-                <li>✅ <b>Incremental Versioning:</b> Complete isolation of state snapshot arrays[cite: 2].</li>
+                <li>✅ <b>Dual-Inference Routing:</b> Intelligent fallback from LLMs to blueprint matrix.</li>
+                <li>✅ <b>10x Resiliency Guards:</b> Telemetry, failure boundaries, and state rollbacks.</li>
+                <li>✅ <b>Incremental Versioning:</b> Complete isolation of state snapshot arrays.</li>
             </ul>
         </div>
         <div class="bg-[#b7c6c2] border-hard p-8 shadow-hard">
             <h2 class="text-3xl font-black mb-4 underline">⚡ QUICK START</h2>
-            <code class="block bg-black text-white p-4 mb-4 font-mono">setup.bat</code>
-            <code class="block bg-black text-white p-4 font-mono">python app.py --file prompts.txt</code>
+            <div class="bg-black text-white p-4 mb-4 font-mono">setup.bat</div>
+            <div class="bg-black text-white p-4 font-mono">python app.py --file prompts.txt</div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-[#171e19] text-[#b7c6c2] border-hard p-10 text-center font-bold">
         <p>2026 Autonomous Agency | Commercial-Grade Orchestration</p>
     </footer>
