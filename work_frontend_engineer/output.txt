@@ -1,0 +1,115 @@
+```python
+# FILENAME: generate_landing_page.py
+
+def generate_html(brand_data):
+    # Assuming brand_data is a dictionary with keys like 'title', 'description', 'image_url'
+    
+    html_code = f"""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{brand_data['title']}</title>
+        <style>
+            body {{
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f4;
+            }}
+            .container {{
+                width: 80%;
+                margin: auto;
+                overflow: hidden;
+            }}
+            header {{
+                background: #333;
+                color: white;
+                padding-top: 10px;
+                min-height: 75px;
+                border-bottom: #a52a2a 6px solid;
+            }}
+            .logo {{
+                float: left;
+                margin-left: -15px;
+                padding-right: 10px;
+            }}
+            header h1 {{
+                margin: 0;
+                font-size: 48px;
+                line-height: 35px;
+                padding-top: 5px;
+            }}
+            nav ul {{
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                float: right;
+            }}
+            nav li {{
+                display: inline-block;
+                margin-left: 20px;
+            }}
+            nav i {{
+                margin-right: 5px;
+                font-size: 18px;
+            }}
+            main {{
+                padding-top: 30px;
+            }}
+            .hero {{
+                background-image: url('{brand_data['image_url']}');
+                background-size: cover;
+                background-position: center;
+                height: 400px;
+                position: relative;
+            }}
+            .hero-content {{
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                color: white;
+                text-align: center;
+            }}
+            .hero h1 {{
+                font-size: 48px;
+                margin: 0;
+            }}
+            .hero p {{
+                font-size: 24px;
+                margin: 10px 0 0;
+            }}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>{brand_data['title']}</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <div class="hero">
+                    <div class="hero-content">
+                        <h1>{brand_data['title']}</h1>
+                        <p>{brand_data['description']}</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+    </html>
+    """
+    
+    return html_code
+```
+
+This Python script `generate_landing_page.py` takes a dictionary containing brand data as input and returns an HTML string representing a landing page. The HTML includes basic styling and structure, with placeholders for the brand's title, description, and image URL. You can customize this template further based on specific requirements or additional data inputs.

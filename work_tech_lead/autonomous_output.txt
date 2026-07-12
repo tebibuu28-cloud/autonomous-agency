@@ -1,0 +1,126 @@
+```
+auto_trading_bot/
+├── config/
+│   ├── settings.py
+│   └── api_keys.json
+├── data/
+│   ├── historical_data.csv
+│   └── real_time_data.csv
+├── models/
+│   └── trading_model.py
+├── strategies/
+│   └── moving_average_strategy.py
+├── utils/
+│   └── market_utils.py
+└── main.py
+```
+
+### `config/settings.py`
+```python
+# General settings for the bot
+TRADE_SYMBOL = 'BTCUSD'
+TIME_FRAME = '1h'
+
+# API keys and settings
+API_KEY = 'your_api_key_here'
+API_SECRET = 'your_api_secret_here'
+
+# Database or storage settings (if needed)
+DATABASE_URI = 'sqlite:///trading_bot.db'
+```
+
+### `config/api_keys.json`
+```json
+{
+    "api_key": "your_api_key_here",
+    "api_secret": "your_api_secret_here"
+}
+```
+
+### `data/historical_data.csv`
+```csv
+timestamp,open,high,low,close,volume
+2023-01-01 00:00:00,45000.0,45100.0,44900.0,45050.0,100
+...
+```
+
+### `data/real_time_data.csv`
+```csv
+timestamp,open,high,low,close,volume
+2023-01-02 00:00:00,46000.0,46100.0,45900.0,46050.0,120
+...
+```
+
+### `models/trading_model.py`
+```python
+class TradingModel:
+    def __init__(self):
+        pass
+
+    def predict(self, data):
+        # Implement your prediction logic here
+        return 'buy'  # or 'sell'
+```
+
+### `strategies/moving_average_strategy.py`
+```python
+from models.trading_model import TradingModel
+
+class MovingAverageStrategy:
+    def __init__(self, short_window=50, long_window=200):
+        self.short_window = short_window
+        self.long_window = long_window
+        self.model = TradingModel()
+
+    def execute(self, data):
+        short_avg = data['close'].rolling(window=self.short_window).mean()
+        long_avg = data['close'].rolling(window=self.long_window).mean()
+
+        if short_avg[-1] > long_avg[-1]:
+            signal = 'buy'
+        elif short_avg[-1] < long_avg[-1]:
+            signal = 'sell'
+        else:
+            signal = self.model.predict(data)
+
+        return signal
+```
+
+### `utils/market_utils.py`
+```python
+import pandas as pd
+
+def fetch_data(symbol, timeframe):
+    # Implement logic to fetch data from an exchange API
+    # For demonstration purposes, using a static CSV file
+    if timeframe == '1h':
+        data = pd.read_csv('data/historical_data.csv')
+    else:
+        data = pd.read_csv('data/real_time_data.csv')
+
+    data['timestamp'] = pd.to_datetime(data['timestamp'])
+    data.set_index('timestamp', inplace=True)
+    return data
+
+def execute_trade(signal, amount):
+    # Implement logic to execute a trade on an exchange
+    print(f"Executing {signal} of {amount} units")
+```
+
+### `main.py`
+```python
+from config.settings import TRADE_SYMBOL, TIME_FRAME
+from strategies.moving_average_strategy import MovingAverageStrategy
+from utils.market_utils import fetch_data, execute_trade
+
+def main():
+    data = fetch_data(TRADE_SYMBOL, TIME_FRAME)
+    strategy = MovingAverageStrategy()
+    signal = strategy.execute(data)
+
+    if signal:
+        execute_trade(signal, 1)  # Execute trade with 1 unit
+
+if __name__ == "__main__":
+    main()
+```

@@ -1,0 +1,31 @@
+```python
+# Fibonacci sequence generator using recursion with memoization
+
+def fibonacci(n, memo={}):
+    """
+    Calculate the nth number in the Fibonacci sequence.
+    
+    Args:
+    n (int): The position in the Fibonacci sequence.
+    memo (dict): A dictionary to store previously computed Fibonacci numbers for optimization.
+
+    Returns:
+    int: The nth number in the Fibonacci sequence.
+    """
+    # Base cases
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    
+    # Check if the result is already computed and stored in memo dictionary
+    if n not in memo:
+        # Recursive calculation with memoization to avoid redundant computations
+        memo[n] = fibonacci(n-1, memo) + fibonacci(n-2, memo)
+    
+    return memo[n]
+
+# Example usage:
+n = 10
+print(f"The {n}th Fibonacci number is: {fibonacci(n)}")
+```

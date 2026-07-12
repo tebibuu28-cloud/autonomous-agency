@@ -1,0 +1,22 @@
+To ensure that the code is free from dynamic import vulnerabilities, we need to avoid using `importlib.import_module` or any other dynamic import methods. Instead, we can use a more straightforward approach to call the function.
+
+Here's the revised `main.py` and `strategy.py`:
+
+### FILENAME: main.py
+```python
+from strategy import buy
+
+def execute_strategy():
+    buy()
+
+if __name__ == "__main__":
+    execute_strategy()
+```
+
+### FILENAME: strategy.py
+```python
+def buy():
+    print("Securely executing buy strategy")
+```
+
+By making these changes, we ensure that the function `buy` is called directly from `main.py`, eliminating any potential dynamic import vulnerabilities.

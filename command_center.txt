@@ -1,0 +1,2 @@
+ASSIGN TASK: Prediction Agent: Analyze BTC trends for the next 24 hours
+ASSIGN TASK: Money Maker Agent: Execute trade based on prediction

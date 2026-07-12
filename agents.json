@@ -1,0 +1,64 @@
+{
+    "Startup Ops": [
+        "CEO",
+        "COO",
+        "CFO",
+        "HR Manager",
+        "Legal Advisor",
+        "Strategy Lead"
+    ],
+    "Dev": [
+        "Frontend Engineer",
+        "Backend Engineer",
+        "DevOps Engineer",
+        "Data Engineer",
+        "QA Automation",
+        "Tech Lead"
+    ],
+    "Design": [
+        "UX Designer",
+        "UI Designer",
+        "Graphic Designer",
+        "Product Designer",
+        "Motion Designer",
+        "Art Director"
+    ],
+    "Marketing": [
+        "SEO Specialist",
+        "Content Marketer",
+        "Growth Hacker",
+        "Email Marketer",
+        "PPC Manager",
+        "Marketing Director"
+    ],
+    "Social Media": [
+        "Community Manager",
+        "Content Creator",
+        "Influencer Manager",
+        "Analytics Specialist",
+        "Copywriter",
+        "Social Media Manager"
+    ],
+    "Trading Agent": [
+        "Algorithmic Trader",
+        "Risk Analyst",
+        "Quantitative Analyst",
+        "Market Researcher",
+        "Portfolio Manager",
+        "Compliance Officer"
+    ],
+    "Cyber Security": [
+        "Penetration Tester",
+        "Security Architect",
+        "Incident Responder",
+        "Compliance Auditor",
+        "Network Security Engineer",
+        "CISO"
+    ],
+    "prediction_agent": {
+        "role": "Analyze market trends and provide forecast"
+    },
+    "money_maker_agent": {
+        "role": "Execute automated trades"
+    }
+}
