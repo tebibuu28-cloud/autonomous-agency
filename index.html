@@ -4,59 +4,32 @@
     <meta charset="UTF-8">
     <title>Autonomous Agency | Enterprise Engine</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
-<body class="bg-slate-950 text-white font-sans">
-
-    <nav class="flex justify-center space-x-10 p-8 border-b border-slate-800 bg-slate-900/50">
-        <button onclick="showSection('overview')" class="text-blue-400 font-bold tracking-widest uppercase">Overview</button>
-        <button onclick="showSection('tech')" class="hover:text-blue-400 font-bold tracking-widest uppercase">Tech Specs</button>
-        <button onclick="showSection('setup')" class="hover:text-blue-400 font-bold tracking-widest uppercase">Quick Start</button>
-    </nav>
-
-    <div class="max-w-5xl mx-auto p-10">
-        <div id="canvas-container" class="w-full h-64 mb-10 border border-blue-900/30 rounded-2xl bg-slate-900"></div>
-
-        <div id="overview" class="content-section">
-            <h1 class="text-5xl font-black mb-6">Autonomous Agency Engine 🚀</h1>
-            <p class="text-xl text-slate-400 mb-8">A commercial-grade, high-throughput multi-agent platform that outclasses standard linear scripts through decoupled, state-driven architecture[cite: 172, 173].</p>
-            
-            <div class="grid grid-cols-2 gap-6">
-                <div class="p-6 bg-slate-900 rounded-lg border border-slate-800">
-                    <h3 class="font-bold text-blue-400 mb-2">Resiliency Guards</h3>
-                    <p>Built-in telemetry, failure boundaries, and state rollbacks.</p>
-                </div>
-                <div class="p-6 bg-slate-900 rounded-lg border border-slate-800">
-                    <h3 class="font-bold text-purple-400 mb-2">Dual-Inference</h3>
-                    <p>Smart fallback routing from local LLMs to structural blueprints[cite: 175, 180].</p>
-                </div>
-            </div>
+<body class="bg-slate-950 text-white font-sans p-10">
+    <div class="max-w-5xl mx-auto">
+        <h1 class="text-5xl font-black mb-6 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+            Autonomous Agency Engine 🚀
+        </h1>
+        
+        <div class="flex gap-4 mb-8">
+            <button onclick="openTab('features')" class="px-6 py-2 bg-blue-600 rounded-full font-bold">Features</button>
+            <button onclick="openTab('tech')" class="px-6 py-2 bg-slate-800 rounded-full font-bold">Architecture</button>
         </div>
 
-        <div id="tech" class="content-section hidden">
-            <h2 class="text-3xl font-bold mb-6">Technical Architecture</h2>
-            <table class="w-full text-left border-collapse">
-                <tr class="border-b border-slate-800"><th class="py-3">Feature</th><th class="py-3">Autonomous Agency</th><th class="py-3">Standard Repo</th></tr>
-                <tr class="border-b border-slate-700"><td class="py-3">Resiliency</td><td class="py-3 text-green-400">10x Guards </td><td class="py-3 text-red-400">Basic/None</td></tr>
-                <tr class="border-b border-slate-700"><td class="py-3">Batching</td><td class="py-3 text-green-400">Unattended Sequential [cite: 181]</td><td class="py-3 text-red-400">Linear Only</td></tr>
-            </table>
-        </div>
-
-        <div id="setup" class="content-section hidden">
-            <h2 class="text-3xl font-bold mb-6">Deployment Guide</h2>
-            <div class="bg-black p-6 rounded-lg font-mono text-sm text-green-400">
-                <p>> setup.bat (Automatic environment & preflight check) </p>
-                <p>> python app.py --file prompts.txt (Batch execution) [cite: 190]</p>
-            </div>
+        <div id="features" class="tab-content bg-slate-900 p-8 rounded-2xl border border-slate-800">
+            <h2 class="text-2xl font-bold mb-4">💎 Premium Production Features</h2>
+            <ul class="space-y-3">
+                <li>✅ <b>Dual-Inference Routing:</b> Intelligent LLM fallback engine.</li>
+                <li>✅ <b>10x Resiliency Guards:</b> Built-in telemetry and health checks.</li>
+                <li>✅ <b>Incremental Versioning:</b> Complete isolation of text builds.</li>
+            </ul>
         </div>
     </div>
-
     <script>
-        function showSection(id) {
-            document.querySelectorAll('.content-section').forEach(s => s.classList.add('hidden'));
+        function openTab(id) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.getElementById(id).classList.remove('hidden');
         }
-        // 3D Scene Code remains consistent for branding
     </script>
 </body>
 </html>
